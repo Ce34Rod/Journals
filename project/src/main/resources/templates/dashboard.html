@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head}">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div class="top-bar">
+    <a th:href="@{/dashboard}">
+        <h1>Lancer's Fitness</h1>
+    </a>
+
+    <div class="account-actions">
+        <a th:href="@{/exercise/index}" class="btn btn-light">User Exercises</a>
+        <a th:href="@{/account}" class="btn btn-light">Manage Account</a>
+        <a th:href="@{/logout}" class="btn btn-light">Logout</a>
+    </div>
+</div>
+<section class="feature">
+    <h2>Go to Your Workouts</h2>
+    <a th:href="@{/workouts/index}" class="btn btn-light">View</a>
+</section>
+
+<div class="feature">
+    <section class="feature">
+        <h2>Explore a Dictionary of Exercises: Discover and Create Exercises Just For You</h2>
+        <img th:src="@{/images/exercise-search.png}" alt="Exercise Search" class="feature-image"/>
+        <a th:href="@{/search}" class="btn btn-light">Search</a>
+    </section>
+    <section class="feature">
+        <h2>Plan Your Power Moves: Personalize Your Exercise Calendar(Feature Unlocked with Premium)</h2>
+        <img th:src="@{/images/exercise-schedule.png}" alt="Exercise Schedule" class="feature-image"/>
+        <a th:href="@{/dashboard}" class="btn btn-light">Schedule</a>
+    </section>
+    <section class="feature">
+        <h2>Celebrate Your Success: Track Your Fitness Journey and Celebrate Your Progress</h2>
+        <img th:src="@{/images/progress-tracking.png}" alt="Progress Tracking" class="feature-image"/>
+        <a th:href="@{/records/index}" class="btn btn-light">Track</a>
+    </section>
+</div>
+<section class="footerSpace"> </section>
+<div class="footer" th:replace="~{fragments :: footer}"></div>
+</body>
+</html>

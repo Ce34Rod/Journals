@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8"/>
+    <title>Lancer's Fitness</title>
+</head>
+<body>
+
+<div th:replace="~{fragments :: top-bar}" class="top-bar">
+</div>
+<div th:replace="~{fragments :: mini-guide}"></div>
+<h2 class="create">Create A New Workout</h2>
+<div>
+    <img src="/images/Ad.jpeg" alt="Advertisement Image" class="ad">
+</div>
+
+<div>
+    <div class="exercises">
+        <form class="createWorkout" action="/workouts/create" method="post">
+            <label class="BigNBold" th:for="name">Name: </label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label class="BigNBold" th:for="workoutDescription">Workout Description: </label>
+            <input type="text" id="workoutDescription" name="workoutDescription" required><br>
+
+            <label class="BigNBold" th:for="workoutDetails">Workout Details: </label>
+            <textarea id="workoutDetails" name="workoutDetails" required></textarea><br>
+
+            <div class="exercises">
+                <label class="BigNBold" th:for="exercises">Exercises: </label>
+                <th:block th:each="exercise : ${exercises}">
+                    <label class="BigNBold">
+                        <input  type="checkbox" name="exercises" th:value="${exercise.id}" th:text="${' ' + exercise.name + '  '}">
+                    </label>
+                </th:block>
+<!--                <th:block th:each="selectedExercise : ${selectedExercises}">-->
+<!--                    <label class="BigNBold">-->
+<!--                        <input type="checkbox" name="exercises" th:value="${selectedExercise.id}" th:text="${' ' + selectedExercise.name + '  '}">-->
+<!--                    </label>-->
+<!--                </th:block>-->
+            </div>
+            <input type="submit" value="Save Workout">
+        </form>
+    </div>
+</div>
+<div class="search-exercise-button" style="text-align: center; margin-bottom: 280px;">
+    <a th:href="@{/search}" class="btn btn-primary">Search our database of exercises here!</a>
+</div>
+<div class="footer" th:replace="fragments :: footer"></div>
+
+</body>
+</html>
